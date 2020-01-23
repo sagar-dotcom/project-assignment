@@ -11,6 +11,7 @@ export class FlagComComponent implements OnInit {
   selCounList;
   selectedValueCountry: any = [];
   expanded = false;
+  newText = false;
   constructor(private flagService: FlagService) {  }
   events = this.flagService.getData();
   ngOnInit() {
@@ -18,6 +19,7 @@ export class FlagComComponent implements OnInit {
   }
 
   onSelect(countryName) {
+    this.newText = false;
     this.selectedValue = countryName;
     this.selCounList = null;
     for(let i = 0; i < this.events.length; i++) {
@@ -49,5 +51,7 @@ showCheckboxes() {
 }
 reset(){
   this.selectedValueCountry = [];
+  this.selectedValue = '';
+  this.newText = true;
 }
 }

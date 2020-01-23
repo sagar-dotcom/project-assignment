@@ -10,7 +10,8 @@
             <br>
             <br>
             <span *ngIf="selectedValue">You selected <br> {{this.selectedValue}}</span>
-        </div>         
+        </div>  
+               
         <div class="col-md-4" *ngIf="selectedValue">
             <label>Select a Country:</label><br>
             <div class="multiselect">
@@ -30,6 +31,11 @@
                     {{selCounLists.name}}
                 </option>
             </select> -->
+        </div> 
+        <div class="col-md-4" *ngIf="this.newText">
+            <select>
+                <option>Select a Country</option>
+              </select>
         </div> 
         <div class="col-md-4" *ngIf="this.selectedValueCountry != ''">
             {{this.selectedValueCountry}}<br><br>
