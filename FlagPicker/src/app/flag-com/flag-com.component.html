@@ -1,0 +1,39 @@
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <label>Select a Continent:</label><br>
+            <select [(ngModel)]="selectedValue" (change)="onSelect($event.target.value)">   
+                <option *ngFor="let event of events" [value]="event.continent">
+                    {{event.continent}}
+                </option>
+            </select>
+            <br>
+            <br>
+            <span *ngIf="selectedValue">You selected <br> {{this.selectedValue}}</span>
+        </div>         
+        <div class="col-md-4" *ngIf="selectedValue">
+            <label>Select a Country:</label><br>
+            <div class="multiselect">
+                <div class="selectBox" (click)="showCheckboxes()">
+                  <select>
+                    <option>Select a Country</option>
+                  </select>
+                  <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes">
+                   <label *ngFor="let selCounLists of selCounList">
+                       <input type="checkbox" id="selCounLists.flag" (change)="onSelectCon(selCounLists.flag, $event.target.checked)"/>{{selCounLists.name}}</label>
+                </div>
+              </div>
+            <!-- <select multiple (change)="onSelectCon($event.target.value)">
+                <option *ngFor="let selCounLists of selCounList" [value]="selCounLists.name">
+                    {{selCounLists.name}}
+                </option>
+            </select> -->
+        </div> 
+        <div class="col-md-4" *ngIf="this.selectedValueCountry != ''">
+            {{this.selectedValueCountry}}<br><br>
+            <button type="reset" class="btn-primary" (click)="reset()">Clear</button>
+        </div>
+    </div>
+</div>
