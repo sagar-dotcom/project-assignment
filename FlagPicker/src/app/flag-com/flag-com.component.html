@@ -37,13 +37,8 @@
                     {{selCounLists.name}}
                 </option>
             </select> -->
-        </div> 
-        <div class="col-md-4" *ngIf="this.newText" >
-            <select>
-                <option>Select a Country</option>
-              </select>
-        </div> 
-        <div class="col-md-4" *ngIf="this.selectedValueCountry != ''">
+        </div>
+        <div class="col-md-4" *ngIf="this.selectedValueCountry != ''  && selectedValue">
             {{this.selectedValueCountry}}<br><br>
             <button type="reset" class="btn-primary" (click)="reset()">Clear</button>
         </div>
