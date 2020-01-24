@@ -8,6 +8,7 @@ import {FlagService} from '../flag.service';
 })
 export class FlagComComponent implements OnInit {
   selectedValue;
+  selConValue = false;
   selCounList;
   selectedValueCountry: any = [];
   expanded = false;
@@ -19,13 +20,16 @@ export class FlagComComponent implements OnInit {
   }
 
   onSelect(countryName) {
-    this.newText = false;
+    this.selConValue = false;
     this.selectedValue = countryName;
     this.selCounList = null;
     for(let i = 0; i < this.events.length; i++) {
       if (this.events[i].continent === countryName) {
         this.selCounList = this.events[i].countries;
       }
+    }
+    if(this.selCounList){
+      this.selConValue = true;
     }
   }
 
@@ -52,6 +56,6 @@ showCheckboxes() {
 reset(){
   this.selectedValueCountry = [];
   this.selectedValue = '';
-  this.newText = true;
+  this.selConValue = false;
 }
 }
