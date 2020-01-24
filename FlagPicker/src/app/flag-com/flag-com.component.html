@@ -1,12 +1,18 @@
 <div>
     <div class="row">
+       
+        
         <div class="col-md-4">
             <label>Select a Continent:</label><br>
-            <select [(ngModel)]="selectedValue" (change)="onSelect($event.target.value)">   
+            <input list="adventure" name="myAdventure" placeholder="Start your search by typing" size="30" [(ngModel)]="selectedValue" (change)="onSelect($event.target.value)">
+             <datalist id="adventure">
+                <option  *ngFor="let event of events" [value]="event.continent">
+            </datalist>
+            <!-- <select [(ngModel)]="selectedValue" (change)="onSelect($event.target.value)">   
                 <option *ngFor="let event of events" [value]="event.continent">
                     {{event.continent}}
                 </option>
-            </select>
+            </select> -->
             <br>
             <br>
             <span *ngIf="selectedValue">You selected <br> {{this.selectedValue}}</span>
@@ -32,7 +38,7 @@
                 </option>
             </select> -->
         </div> 
-        <div class="col-md-4" *ngIf="this.newText">
+        <div class="col-md-4" *ngIf="this.newText" >
             <select>
                 <option>Select a Country</option>
               </select>
